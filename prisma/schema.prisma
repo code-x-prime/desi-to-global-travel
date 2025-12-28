@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id           String        @id @default(cuid())
+  name         String
+  slug         String        @unique
+  description  String?
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  packages     TourPackage[]
+  destinations Destination[]
+}
+
+model Destination {
+  id                String    @id @default(cuid())
+  name              String
+  slug              String    @unique
+  description       String?
+  country           String?
+  region            String?
+  imageUrl          String?
+  duration          String? // e.g., "7 Days / 6 Nights"
+  tripOverview      String? // Trip overview description
+  tripHighlights    String[]  @default([]) // Trip highlights array
+  detailedItinerary String? // Detailed itinerary (HTML)
+  isActive          Boolean   @default(true)
+  isPopular         Boolean   @default(false)
+  categoryId        String?
+  category          Category? @relation(fields: [categoryId], references: [id])
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model TourPackage {
+  id                String         @id @default(cuid())
+  name              String
+  slug              String         @unique
+  duration          String // e.g., "7 Days / 6 Nights"
+  highlights        String[] // Array of highlights
+  itinerary         Json // Day-wise itinerary stored as JSON
+  description       String?
+  price             String?
+  showPrice         Boolean        @default(true)
+  whatsappNumber    String?
+  categoryId        String?
+  category          Category?      @relation(fields: [categoryId], references: [id])
+  isActive          Boolean        @default(true)
+  isFeatured        Boolean        @default(false)
+  includes          String[]       @default([]) // What's included in package
+  excludes          String[]       @default([]) // What's not included
+  costDetails       String? // Detailed cost breakdown
+  detailedItinerary String? // Rich text detailed itinerary
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  images            PackageImage[]
+}
+
+model PackageImage {
+  id        String      @id @default(cuid())
+  url       String
+  alt       String?
+  isPrimary Boolean     @default(false)
+  order     Int         @default(0)
+  packageId String
+  package   TourPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([packageId])
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, order])
+}
+
+model Inquiry {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  message       String
+  packageId     String?
+  destinationId String?
+  destination   String? // Destination name/slug
+  travelers     String? // Number of travelers
+  adults        String? // Number of adults
+  children      String? // Number of children
+  travelDate    String? // Preferred travel date
+  source        String? // Source: 'package', 'destination', or 'contact'
+  isRead        Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([isRead, createdAt])
+}
