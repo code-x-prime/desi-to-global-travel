@@ -7,6 +7,7 @@ import imageCompression from 'browser-image-compression'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Upload, X } from 'lucide-react'
+import Image from 'next/image'
 
 export function GalleryUploadForm() {
     const router = useRouter()
@@ -153,10 +154,12 @@ export function GalleryUploadForm() {
                             {files.map((file, index) => (
                                 <div key={index} className="relative group">
                                     <div className="relative aspect-square bg-gray-200 rounded-lg overflow-hidden">
-                                        <img
+                                        <Image
                                             src={file.preview}
                                             alt={`Preview ${index + 1}`}
                                             className="w-full h-full object-cover"
+                                            width={500}
+                                            height={500}
                                         />
                                         <button
                                             onClick={() => removeFile(index)}
