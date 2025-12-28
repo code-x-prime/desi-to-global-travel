@@ -20,7 +20,12 @@ export default function GalleryPage() {
     useEffect(() => {
         async function fetchImages() {
             try {
-                const response = await fetch('/api/gallery')
+                const response = await fetch('/api/gallery', {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                    },
+                })
                 if (response.ok) {
                     const data = await response.json()
                     const activeImages = data.filter(img => img.isActive)

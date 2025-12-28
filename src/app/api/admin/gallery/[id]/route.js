@@ -3,6 +3,10 @@ import { prisma } from '@/lib/prisma'
 import { getSession } from '@/lib/auth'
 import { deleteFromR2 } from '@/lib/r2'
 
+// Disable caching for this route
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function PATCH(request, { params }) {
     const session = await getSession()
     if (!session) {
@@ -23,10 +27,19 @@ export async function PATCH(request, { params }) {
             },
         })
 
-        return NextResponse.json(image)
+        return NextResponse.json(image, {
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     } catch (error) {
         console.error('Error updating gallery image:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+        return NextResponse.json({ error: 'Internal server error' }, {
+            status: 500,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     }
 }
 
@@ -58,10 +71,19 @@ export async function DELETE(request, { params }) {
             await deleteFromR2(image.url)
         }
 
-        return NextResponse.json({ success: true })
+        return NextResponse.json({ success: true }, {
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     } catch (error) {
         console.error('Error deleting gallery image:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+        return NextResponse.json({ error: 'Internal server error' }, {
+            status: 500,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     }
 }
 

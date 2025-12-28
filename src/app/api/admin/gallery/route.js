@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getSession } from '@/lib/auth'
 
+// Disable caching for this route
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
     const session = await getSession()
     if (!session) {
@@ -12,10 +16,21 @@ export async function GET() {
         const images = await prisma.galleryImage.findMany({
             orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
         })
-        return NextResponse.json(images)
+        return NextResponse.json(images, {
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0',
+            },
+        })
     } catch (error) {
         console.error('Error fetching gallery images:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+        return NextResponse.json({ error: 'Internal server error' }, { 
+            status: 500,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     }
 }
 
@@ -38,10 +53,20 @@ export async function POST(request) {
             },
         })
 
-        return NextResponse.json(image, { status: 201 })
+        return NextResponse.json(image, { 
+            status: 201,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     } catch (error) {
         console.error('Error creating gallery image:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+        return NextResponse.json({ error: 'Internal server error' }, { 
+            status: 500,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     }
 }
 
