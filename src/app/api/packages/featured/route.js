@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
+// Disable caching for this route
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
     try {
         // Get featured packages (limit 6 for home page), ordered by creation date (first added first)
@@ -22,10 +26,21 @@ export async function GET() {
             ],
         })
 
-        return NextResponse.json(packages)
+        return NextResponse.json(packages, {
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0',
+            },
+        })
     } catch (error) {
         console.error('Error fetching packages:', error)
-        return NextResponse.json([], { status: 500 })
+        return NextResponse.json([], {
+            status: 500,
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            },
+        })
     }
 }
 

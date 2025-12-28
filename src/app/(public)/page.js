@@ -74,7 +74,12 @@ export default function HomePage() {
     useEffect(() => {
         async function fetchPackages() {
             try {
-                const response = await fetch('/api/packages/featured')
+                const response = await fetch('/api/packages/featured', {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                    },
+                })
                 if (response.ok) {
                     const data = await response.json()
                     // API returns all featured packages, ordered by creation date
@@ -92,7 +97,12 @@ export default function HomePage() {
     useEffect(() => {
         async function fetchDestinations() {
             try {
-                const response = await fetch('/api/destinations/popular')
+                const response = await fetch('/api/destinations/popular', {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                    },
+                })
                 if (response.ok) {
                     const data = await response.json()
                     // API returns all popular destinations, ordered by creation date
