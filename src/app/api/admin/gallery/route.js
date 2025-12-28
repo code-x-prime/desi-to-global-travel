@@ -25,7 +25,7 @@ export async function GET() {
         })
     } catch (error) {
         console.error('Error fetching gallery images:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { 
+        return NextResponse.json({ error: 'Internal server error' }, {
             status: 500,
             headers: {
                 'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
@@ -53,7 +53,7 @@ export async function POST(request) {
             },
         })
 
-        return NextResponse.json(image, { 
+        return NextResponse.json(image, {
             status: 201,
             headers: {
                 'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
@@ -61,7 +61,7 @@ export async function POST(request) {
         })
     } catch (error) {
         console.error('Error creating gallery image:', error)
-        return NextResponse.json({ error: 'Internal server error' }, { 
+        return NextResponse.json({ error: 'Internal server error' }, {
             status: 500,
             headers: {
                 'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
