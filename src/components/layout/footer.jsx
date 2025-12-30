@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa'
 
 export function Footer() {
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '1234567890'
+    const whatsappNumber = '919650509356'
     const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
     return (
@@ -16,14 +16,44 @@ export function Footer() {
                             <Image
                                 src="/logo.png"
                                 alt="Desi To Global Travel"
-                                width={140}
-                                height={53}
-                                className="object-contain sm:w-[160px] sm:h-[60px]"
+                                width={180}
+                                height={70}
+                                className="object-contain sm:w-[200px] sm:h-[80px]"
                             />
                         </Link>
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">
                             We Don&apos;t Just Book Trips. We Craft Your Next Great Story.
                         </p>
+                        {/* Social Media Icons */}
+                        <div className="flex items-center gap-3">
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:bg-[#20BA5A] transition-colors duration-200"
+                                aria-label="WhatsApp"
+                            >
+                                <FaWhatsapp className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://facebook.com/desitoglobaltravel"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 bg-[#1877F2] text-white rounded-full flex items-center justify-center hover:bg-[#166FE5] transition-colors duration-200"
+                                aria-label="Facebook"
+                            >
+                                <FaFacebookF className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://instagram.com/desitoglobaltravel"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity duration-200"
+                                aria-label="Instagram"
+                            >
+                                <FaInstagram className="h-5 w-5" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -72,6 +102,16 @@ export function Footer() {
                                     All Packages
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/packages?category=school-tours" className="text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200">
+                                    School Tours
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/packages?category=corporate-tours" className="text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200">
+                                    Corporate Tours
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -87,21 +127,30 @@ export function Footer() {
                                     className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#25D366] transition-colors duration-200 group"
                                 >
                                     <FaWhatsapp className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                                    <span className="break-all">WhatsApp</span>
+                                    <span className="break-all">+91 9650509356</span>
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="mailto:info@desitoglobaltravel.com"
+                                    href="tel:+919650509356"
+                                    className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200 group"
+                                >
+                                    <FaPhone className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                                    <span className="break-all">+91 9650509356</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="mailto:contact@desitoglobaltravel.com"
                                     className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200 group"
                                 >
                                     <FaEnvelope className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                                    <span className="break-all">info@desitoglobaltravel.com</span>
+                                    <span className="break-all">contact@desitoglobaltravel.com</span>
                                 </a>
                             </li>
                             <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                                 <FaMapMarkerAlt className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 flex-shrink-0" />
-                                <span>Your Office Address<br />City, State, Country</span>
+                                <span>J-044, Gulshan Vivante,<br />Sector-137, Noida, U.P.<br />Pin Code: 201305</span>
                             </li>
                         </ul>
                     </div>

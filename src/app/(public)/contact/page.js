@@ -42,10 +42,10 @@ export default function ContactPage() {
                                         <div className="min-w-0 flex-1">
                                             <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">Email</p>
                                             <a
-                                                href="mailto:info@desitoglobaltravel.com"
+                                                href="mailto:contact@desitoglobaltravel.com"
                                                 className="text-xs sm:text-sm text-gray-600 hover:text-[#0d3980] transition-colors font-sans break-all"
                                             >
-                                                info@desitoglobaltravel.com
+                                                contact@desitoglobaltravel.com
                                             </a>
                                         </div>
                                     </div>
@@ -57,10 +57,10 @@ export default function ContactPage() {
                                         <div className="min-w-0 flex-1">
                                             <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">Phone</p>
                                             <a
-                                                href="tel:+919876543210"
+                                                href="tel:+919650509356"
                                                 className="text-xs sm:text-sm text-gray-600 hover:text-[#0d3980] transition-colors font-sans"
                                             >
-                                                +91 98765 43210
+                                                +91 9650509356
                                             </a>
                                         </div>
                                     </div>
@@ -72,9 +72,11 @@ export default function ContactPage() {
                                         <div className="min-w-0 flex-1">
                                             <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">Address</p>
                                             <p className="text-xs sm:text-sm text-gray-600 font-sans">
-                                                Your Office Address
+                                                J-044, Gulshan Vivante,
                                                 <br />
-                                                City, State, Country
+                                                Sector-137, Noida, U.P.
+                                                <br />
+                                                Pin Code: 201305
                                             </p>
                                         </div>
                                     </div>

@@ -47,14 +47,14 @@ export function Navbar() {
                     <Link href="/" className="flex items-center">
                         <motion.div
                             transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="relative"
+                            className="relative  p-1 "
                         >
                             <Image
                                 src="/logo.png"
                                 alt="Desi To Global Travel"
-                                width={200}
-                                height={200}
-                                className="object-contain w-auto h-[80px]"
+                                width={220}
+                                height={220}
+                                className="object-contain w-auto h-[100px]"
                                 priority
                             />
                         </motion.div>

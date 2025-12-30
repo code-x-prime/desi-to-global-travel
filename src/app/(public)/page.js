@@ -117,7 +117,7 @@ export default function HomePage() {
         fetchDestinations()
     }, [])
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '1234567890'
+    const whatsappNumber = '919650509356'
     const whatsappMessage = encodeURIComponent('Hello! I would like to know more about your travel packages.')
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
@@ -459,22 +459,22 @@ export default function HomePage() {
                             className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto"
                         >
                             <a
-                                href="tel:+919876543210"
+                                href="tel:+919650509356"
                                 className="group flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 hover:bg-white/20 transition-all duration-300"
                             >
                                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
                                     <FaPhone className="h-3 w-3 sm:h-4 sm:w-4 text-[#33baea]" />
                                 </div>
-                                <span className="text-white font-medium text-xs sm:text-sm md:text-base">+91 98765 43210</span>
+                                <span className="text-white font-medium text-xs sm:text-sm md:text-base">+91 9650509356</span>
                             </a>
                             <a
-                                href="mailto:info@desitoglobal.com"
+                                href="mailto:contact@desitoglobaltravel.com"
                                 className="group flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 hover:bg-white/20 transition-all duration-300"
                             >
                                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
                                     <FaEnvelope className="h-3 w-3 sm:h-4 sm:w-4 text-[#f9c701]" />
                                 </div>
-                                <span className="text-white font-medium text-xs sm:text-sm md:text-base break-all">info@desitoglobal.com</span>
+                                <span className="text-white font-medium text-xs sm:text-sm md:text-base break-all">contact@desitoglobaltravel.com</span>
                             </a>
                         </motion.div>
                     </div>

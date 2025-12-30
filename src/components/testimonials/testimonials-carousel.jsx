@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { FaQuoteLeft, FaStar, FaHeart } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
-import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 
 
@@ -124,14 +123,7 @@ export function TestimonialsCarousel({ testimonials = [] }) {
 
                                             {/* Author Info */}
                                             <div className="flex items-center gap-3">
-                                                <div className="relative w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0">
-                                                    <Image
-                                                        src={testimonial.image || "/placeholder.svg"}
-                                                        alt={testimonial.name}
-                                                        fill
-                                                        className="object-cover border-2 border-[#f9c701]"
-                                                    />
-                                                </div>
+                                            
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2 mb-1">
                                                         <h4 className="text-white font-semibold text-sm lg:text-base font-sans truncate">
