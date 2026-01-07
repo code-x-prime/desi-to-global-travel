@@ -59,9 +59,10 @@ export function DestinationForm({ destination: initialDestination, categories = 
                 const file = acceptedFiles[0]
                 try {
                     const compressed = await imageCompression(file, {
-                        maxSizeMB: 1,
-                        maxWidthOrHeight: 1920,
+                        maxSizeMB: 5, // Increased from 1MB to preserve quality
+                        maxWidthOrHeight: 2560, // Increased for better HD quality
                         useWebWorker: true,
+                        initialQuality: 0.92, // High quality compression
                     })
                     setImageFile(compressed)
                     setImagePreview(URL.createObjectURL(compressed))
