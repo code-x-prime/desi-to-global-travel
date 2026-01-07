@@ -95,7 +95,7 @@ UPLOAD_FOLDER="ing"
 # =============================================
 # WHATSAPP CONFIGURATION
 # =============================================
-NEXT_PUBLIC_WHATSAPP_NUMBER="9650509356"
+NEXT_PUBLIC_WHATSAPP_NUMBER="919650509356"
 ```
 
 4. Set up the database
