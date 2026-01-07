@@ -12,7 +12,7 @@ import { PackageBookingDialog } from '@/components/booking/package-booking-dialo
 export function PackageDetailClient({ pkg }) {
     const [dialogOpen, setDialogOpen] = useState(false)
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '1234567890'
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9650509356'
     const whatsappMessage = encodeURIComponent(`Hi! I'm interested in the ${pkg.name} package.`)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 

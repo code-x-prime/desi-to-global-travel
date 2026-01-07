@@ -267,6 +267,23 @@ export function DestinationForm({ destination: initialDestination, categories = 
                         </div>
                     </div>
 
+                    {/* Short Description */}
+                    <div className="border-t pt-6">
+                        <h3 className="text-lg font-serif font-bold text-[#0d3980] mb-4">Short Description</h3>
+                        <div>
+                            <Label htmlFor="description" className="text-[#0d3980] font-semibold font-sans">Short Description (Optional)</Label>
+                            <Textarea
+                                id="description"
+                                name="description"
+                                value={formData.description}
+                                onChange={handleChange}
+                                className="mt-1 border-2 border-gray-200 focus:border-[#0d3980] font-sans min-h-[100px]"
+                                placeholder="Enter a brief description of this destination (appears on destination cards)"
+                            />
+                            <p className="text-xs text-gray-500 mt-1 font-sans">This is a short summary shown on destination listings and social shares</p>
+                        </div>
+                    </div>
+
                     {/* Location Information */}
                     <div className="border-t pt-6">
                         <h3 className="text-lg font-serif font-bold text-[#0d3980] mb-4">Location Information</h3>

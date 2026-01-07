@@ -392,7 +392,7 @@ export function PackageForm({ package: initialPackage, categories = [] }) {
                                     type="tel"
                                     value={formData.whatsappNumber}
                                     onChange={handleChange}
-                                    placeholder="e.g., +91 1234567890"
+                                    placeholder="e.g., +91 9650509356"
                                     className="mt-1 h-12 border-2 border-gray-200 focus:border-[#0d3980] font-sans"
                                 />
                             </div>
@@ -408,7 +408,7 @@ export function PackageForm({ package: initialPackage, categories = [] }) {
                                 type="tel"
                                 value={formData.whatsappNumber}
                                 onChange={handleChange}
-                                placeholder="e.g., +91 1234567890"
+                                placeholder="e.g., +91 9650509356"
                                 className="mt-1 h-12 border-2 border-gray-200 focus:border-[#0d3980] font-sans"
                             />
                         </div>

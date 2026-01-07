@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Mail, MessageCircle, MapPin, Globe } from 'lucide-react'
+import { Mail, MessageCircle, MapPin, Globe, Clock, CheckCircle, Calendar } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { DestinationBookingDialog } from '@/components/booking/destination-booking-dialog'
@@ -11,7 +11,7 @@ import { DestinationBookingDialog } from '@/components/booking/destination-booki
 export function DestinationDetailClient({ destination, packages }) {
     const [dialogOpen, setDialogOpen] = useState(false)
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '1234567890'
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '9650509356'
     const whatsappMessage = encodeURIComponent(`Hi! I'm interested in ${destination.name}.`)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
@@ -58,6 +58,12 @@ export function DestinationDetailClient({ destination, packages }) {
                                             {destination.category.name}
                                         </span>
                                     )}
+                                    {destination.duration && (
+                                        <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-[#f9c701]/20 text-white rounded-md">
+                                            <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                                            <span className="text-xs sm:text-sm font-sans font-medium">{destination.duration}</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -96,8 +102,89 @@ export function DestinationDetailClient({ destination, packages }) {
                                     </div>
                                 )}
 
-                                {/* Description */}
-                                {destination.description && (
+                                {/* Trip Overview */}
+                                {destination.tripOverview && (
+                                    <div className="bg-gradient-to-r from-[#0d3980]/5 to-[#33baea]/5 rounded-xl p-5 sm:p-6 border border-[#33baea]/20">
+                                        <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0d3980] mb-3 sm:mb-4 flex items-center gap-2">
+                                            <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-[#33baea]" />
+                                            Trip Overview
+                                        </h2>
+                                        <div
+                                            className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans prose prose-sm sm:prose-lg max-w-none"
+                                            dangerouslySetInnerHTML={{ __html: destination.tripOverview }}
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Description - fallback if no tripOverview */}
+                                {!destination.tripOverview && destination.description && (
+                                    <div className="bg-gradient-to-r from-[#0d3980]/5 to-[#33baea]/5 rounded-xl p-5 sm:p-6 border border-[#33baea]/20">
+                                        <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0d3980] mb-3 sm:mb-4 flex items-center gap-2">
+                                            <Globe className="h-5 w-5 sm:h-6 sm:w-6 text-[#33baea]" />
+                                            About {destination.name}
+                                        </h2>
+                                        <div
+                                            className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans prose prose-sm sm:prose-lg max-w-none"
+                                            dangerouslySetInnerHTML={{ __html: destination.description }}
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Trip Highlights */}
+                                {destination.tripHighlights && destination.tripHighlights.length > 0 && (
+                                    <div className="bg-white rounded-xl p-5 sm:p-6 border-2 border-[#f9c701]/30 shadow-md">
+                                        <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0d3980] mb-4 sm:mb-5 flex items-center gap-2">
+                                            <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#f9c701]" />
+                                            Trip Highlights
+                                        </h2>
+                                        <div className="space-y-3">
+                                            {destination.tripHighlights.map((highlight, index) => {
+                                                // Check if it's HTML content
+                                                if (highlight && highlight.includes('<')) {
+                                                    return (
+                                                        <div
+                                                            key={index}
+                                                            className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans prose prose-sm sm:prose-lg max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-2"
+                                                            dangerouslySetInnerHTML={{ __html: highlight }}
+                                                        />
+                                                    )
+                                                }
+                                                // Plain text highlight
+                                                return (
+                                                    <div key={index} className="flex items-start gap-3">
+                                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#f9c701]/20 flex items-center justify-center mt-0.5">
+                                                            <CheckCircle className="h-4 w-4 text-[#f9c701]" />
+                                                        </div>
+                                                        <span className="text-sm sm:text-base text-gray-700 font-sans">{highlight}</span>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Detailed Itinerary */}
+                                {destination.detailedItinerary && (
+                                    <div className="bg-white rounded-xl p-5 sm:p-6 border-2 border-[#0d3980]/20 shadow-md">
+                                        <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0d3980] mb-4 sm:mb-5 flex items-center gap-2">
+                                            <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-[#0d3980]" />
+                                            Detailed Itinerary
+                                        </h2>
+                                        <div
+                                            className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans prose prose-sm sm:prose-lg max-w-none 
+                                            [&_h1]:text-lg [&_h1]:sm:text-xl [&_h1]:font-serif [&_h1]:font-bold [&_h1]:text-[#0d3980] [&_h1]:mt-4 [&_h1]:mb-2
+                                            [&_h2]:text-base [&_h2]:sm:text-lg [&_h2]:font-serif [&_h2]:font-bold [&_h2]:text-[#0d3980] [&_h2]:mt-4 [&_h2]:mb-2
+                                            [&_h3]:text-sm [&_h3]:sm:text-base [&_h3]:font-semibold [&_h3]:text-[#33baea] [&_h3]:mt-3 [&_h3]:mb-2
+                                            [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-2
+                                            [&_ol]:list-decimal [&_ol]:pl-5
+                                            [&_strong]:text-[#0d3980] [&_strong]:font-semibold"
+                                            dangerouslySetInnerHTML={{ __html: destination.detailedItinerary }}
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Additional Description - show below if tripOverview exists */}
+                                {destination.tripOverview && destination.description && (
                                     <div>
                                         <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0d3980] mb-3 sm:mb-4">About {destination.name}</h2>
                                         <div
