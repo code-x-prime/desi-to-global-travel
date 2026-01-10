@@ -69,21 +69,21 @@ const aboutFeatures = [
         title: 'Curated Expertise',
         description: 'Every hotel, route, and local eatery is vetted by our team to ensure it meets our high standards of quality and authenticity.',
         gradient: 'from-[#0d3980] to-[#33baea]',
-        image: 'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80'
+        image: '/curated-expertise.jpg'
     },
     {
         svg: '/responsible-travel.svg',
         title: 'Responsible Travel',
         description: 'We are committed to sustainable tourism, working with local communities to ensure your visit has a positive impact.',
         gradient: 'from-[#33baea] to-[#0d3980]',
-        image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80'
+        image: '/responsible-travel.jpg'
     },
     {
         svg: '/concierge-support.svg',
         title: '24/7 Support',
         description: 'From the moment you land to your final flight home, our dedicated concierge team is a message away.',
         gradient: 'from-[#f9c701] to-[#ff9500]',
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80'
+        image: '/support.jpg'
     },
 ]
 
@@ -110,10 +110,6 @@ export function WhyChooseUs({ variant = 'home', title = null, subtitle = null })
                     variants={staggerContainer}
                     className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20"
                 >
-                    <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-[#33baea]/10 rounded-md px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6">
-                        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#33baea] rounded-md animate-pulse" />
-                        <span className="text-[#33baea] text-xs sm:text-sm font-semibold tracking-wide uppercase font-sans">Why Choose Us</span>
-                    </motion.div>
 
                     <motion.h2
                         variants={fadeUp}
@@ -125,7 +121,7 @@ export function WhyChooseUs({ variant = 'home', title = null, subtitle = null })
                                 <br />
                                 <span className="text-[#33baea]">Peace of Mind</span>
                             </>
-                        ) : 'What Sets Us Apart')}
+                        ) : 'Why Choose Us')}
                     </motion.h2>
 
                     {subtitle && (

@@ -76,7 +76,7 @@ export default function AboutPage() {
                         {/* Image */}
                         <motion.div variants={fadeUp} className="relative h-[500px] lg:h-[600px]">
                             <Image
-                                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+                                src="/about-1.jpg"
                                 alt="Luxury Travel Experience"
                                 fill
                                 className="object-cover"
@@ -121,7 +121,7 @@ export default function AboutPage() {
                     >
                         <motion.div variants={fadeUp} className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] order-2 lg:order-1">
                             <Image
-                                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+                                src="/about-2.jpg"
                                 alt="Abhimanu Varma - Travel Story"
                                 fill
                                 className="object-cover"

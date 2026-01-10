@@ -42,19 +42,19 @@ export function Navbar() {
             className="fixed top-0 left-0 right-0 z-50 w-full"
         >
             <div className="mx-auto px-4 sm:px-6 lg:px-20">
-                <div className="flex h-20 md:h-24 items-center justify-between">
+                <div className="flex h-auto items-center justify-between">
                     {/* Logo - Left */}
                     <Link href="/" className="flex items-center">
                         <motion.div
                             transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="relative  p-1 "
+                            className="relative p-1"
                         >
                             <Image
                                 src="/logo.png"
                                 alt="Desi To Global Travel"
                                 width={220}
                                 height={220}
-                                className="object-contain w-auto h-[100px]"
+                                className="object-contain w-auto h-[110px]"
                                 priority
                             />
                         </motion.div>

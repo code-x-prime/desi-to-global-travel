@@ -40,9 +40,9 @@ const staggerContainer = {
 
 // Hero background images - carousel
 const heroImages = [
-    '/h1.jpg',
-    '/h2.jpg',
     '/h3.jpg',
+    '/h2.jpg',
+    '/h1.jpg',
 ]
 
 
@@ -162,7 +162,7 @@ export default function HomePage() {
                         initial="hidden"
                         animate="visible"
                         variants={staggerContainer}
-                        className="space-y-4 sm:space-y-6 md:space-y-8"
+                        className="space-y-4 sm:space-y-6"
                     >
                         {/* Small Uppercase Label */}
                         <motion.div
