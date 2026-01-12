@@ -25,11 +25,13 @@ export function PackageDetailClient({ pkg }) {
 
     const itinerary = typeof pkg.itinerary === 'object' ? pkg.itinerary : {}
     const coverImage = pkg.images?.find(img => img.isPrimary) || pkg.images?.[0]
+    const galleryImages = pkg.images?.filter(img => img.id !== coverImage?.id) || []
     const hasItinerary = itinerary && Object.keys(itinerary).length > 0
     const hasCostDetails = pkg.costDetails && pkg.costDetails.trim().length > 0
     const hasIncludes = pkg.includes && pkg.includes.length > 0
     const hasExcludes = pkg.excludes && pkg.excludes.length > 0
     const hasTabs = hasItinerary || hasCostDetails || hasIncludes || hasExcludes
+    const showCarousel = galleryImages.length > 4
 
     return (
         <>
@@ -102,55 +104,48 @@ export function PackageDetailClient({ pkg }) {
                         )}
 
                         {/* Additional Gallery Images */}
-                        {pkg.images && pkg.images.length > 1 && (
+                        {galleryImages.length > 0 && (
                             <div className="mb-8 sm:mb-10 md:mb-12">
-                                {(() => {
-                                    const filteredImages = pkg.images.filter(img => img.id !== coverImage?.id);
-                                    
-                                    if (filteredImages.length > 4) {
-                                        return (
-                                            <Carousel
-                                                opts={{
-                                                    align: "start",
-                                                    loop: true,
-                                                }}
-                                                className="w-full"
-                                            >
-                                                <CarouselContent className="-ml-2 md:-ml-4">
-                                                    {filteredImages.map((image) => (
-                                                        <CarouselItem key={image.id} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4">
-                                                            <div className="relative h-32 sm:h-40 md:h-48 bg-gray-200 rounded-lg overflow-hidden">
-                                                                <Image
-                                                                    src={image.url}
-                                                                    alt={image.alt || pkg.name}
-                                                                    fill
-                                                                    className="object-cover"
-                                                                />
-                                                            </div>
-                                                        </CarouselItem>
-                                                    ))}
-                                                </CarouselContent>
-                                                <CarouselPrevious className="left-2" />
-                                                <CarouselNext className="right-2" />
-                                            </Carousel>
-                                        );
-                                    }
-
-                                    return (
-                                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                                            {filteredImages.map((image) => (
-                                                <div key={image.id} className="relative h-32 sm:h-40 md:h-48 bg-gray-200 rounded-lg overflow-hidden">
-                                                    <Image
-                                                        src={image.url}
-                                                        alt={image.alt || pkg.name}
-                                                        fill
-                                                        className="object-cover"
-                                                    />
-                                                </div>
+                                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#0d3980] mb-4">Photo Gallery</h3>
+                                {showCarousel ? (
+                                    <Carousel
+                                        opts={{
+                                            align: "start",
+                                            loop: true,
+                                        }}
+                                        className="w-full"
+                                    >
+                                        <CarouselContent className="-ml-2 md:-ml-4">
+                                            {galleryImages.map((image) => (
+                                                <CarouselItem key={image.id} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4">
+                                                    <div className="relative h-40 sm:h-48 md:h-56 bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                                                        <Image
+                                                            src={image.url}
+                                                            alt={image.alt || pkg.name}
+                                                            fill
+                                                            className="object-cover hover:scale-105 transition-transform duration-300"
+                                                        />
+                                                    </div>
+                                                </CarouselItem>
                                             ))}
-                                        </div>
-                                    );
-                                })()}
+                                        </CarouselContent>
+                                        <CarouselPrevious className="left-2 bg-white/90 hover:bg-white shadow-lg" />
+                                        <CarouselNext className="right-2 bg-white/90 hover:bg-white shadow-lg" />
+                                    </Carousel>
+                                ) : (
+                                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                        {galleryImages.map((image) => (
+                                            <div key={image.id} className="relative h-40 sm:h-48 md:h-56 bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                                                <Image
+                                                    src={image.url}
+                                                    alt={image.alt || pkg.name}
+                                                    fill
+                                                    className="object-cover hover:scale-105 transition-transform duration-300"
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         )}
 

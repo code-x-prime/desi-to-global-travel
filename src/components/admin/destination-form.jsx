@@ -123,7 +123,8 @@ export function DestinationForm({ destination: initialDestination, categories = 
         setUploadingImage(true)
 
         try {
-            let imageUrl = initialDestination?.imageUrl || null
+            // Determine imageUrl based on current state
+            let imageUrl = null
 
             // Upload image if new file selected
             if (imageFile) {
@@ -141,7 +142,14 @@ export function DestinationForm({ destination: initialDestination, categories = 
 
                 const uploadData = await uploadResponse.json()
                 imageUrl = uploadData.url
+            } else if (imagePreview) {
+                // No new file, but imagePreview exists - keep existing image
+                // imagePreview could be the original URL or a blob URL (both are truthy)
+                // If it's the original URL from initialDestination, use it
+                // If user removed image (imagePreview is null), imageUrl stays null
+                imageUrl = initialDestination?.imageUrl || null
             }
+            // If imagePreview is null and no new file, imageUrl stays null (user removed image)
 
             setUploadingImage(false)
 
