@@ -8,6 +8,13 @@ import { Mail, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 import { ShareButtons } from '@/components/packages/share-buttons'
 import { PackageBookingDialog } from '@/components/booking/package-booking-dialog'
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export function PackageDetailClient({ pkg }) {
     const [dialogOpen, setDialogOpen] = useState(false)
@@ -97,18 +104,53 @@ export function PackageDetailClient({ pkg }) {
                         {/* Additional Gallery Images */}
                         {pkg.images && pkg.images.length > 1 && (
                             <div className="mb-8 sm:mb-10 md:mb-12">
-                                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                                    {pkg.images.filter(img => img.id !== coverImage?.id).slice(0, 4).map((image) => (
-                                        <div key={image.id} className="relative h-32 sm:h-40 md:h-48 bg-gray-200 rounded-lg overflow-hidden">
-                                            <Image
-                                                src={image.url}
-                                                alt={image.alt || pkg.name}
-                                                fill
-                                                className="object-cover"
-                                            />
+                                {(() => {
+                                    const filteredImages = pkg.images.filter(img => img.id !== coverImage?.id);
+                                    
+                                    if (filteredImages.length > 4) {
+                                        return (
+                                            <Carousel
+                                                opts={{
+                                                    align: "start",
+                                                    loop: true,
+                                                }}
+                                                className="w-full"
+                                            >
+                                                <CarouselContent className="-ml-2 md:-ml-4">
+                                                    {filteredImages.map((image) => (
+                                                        <CarouselItem key={image.id} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4">
+                                                            <div className="relative h-32 sm:h-40 md:h-48 bg-gray-200 rounded-lg overflow-hidden">
+                                                                <Image
+                                                                    src={image.url}
+                                                                    alt={image.alt || pkg.name}
+                                                                    fill
+                                                                    className="object-cover"
+                                                                />
+                                                            </div>
+                                                        </CarouselItem>
+                                                    ))}
+                                                </CarouselContent>
+                                                <CarouselPrevious className="left-2" />
+                                                <CarouselNext className="right-2" />
+                                            </Carousel>
+                                        );
+                                    }
+
+                                    return (
+                                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                                            {filteredImages.map((image) => (
+                                                <div key={image.id} className="relative h-32 sm:h-40 md:h-48 bg-gray-200 rounded-lg overflow-hidden">
+                                                    <Image
+                                                        src={image.url}
+                                                        alt={image.alt || pkg.name}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    );
+                                })()}
                             </div>
                         )}
 
