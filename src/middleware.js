@@ -7,6 +7,12 @@ export async function middleware(request) {
     // Add header to identify login page
     const response = NextResponse.next()
     if (pathname === '/admin/login') {
+        const cookieStore = await cookies()
+        const sessionId = cookieStore.get('admin_session')?.value
+
+        if (sessionId) {
+            return NextResponse.redirect(new URL('/admin/dashboard', request.url))
+        }
         response.headers.set('x-is-login-page', 'true')
     }
 
