@@ -60,10 +60,6 @@ export default function AboutPage() {
 
                             <div className="prose prose-lg max-w-none space-y-6">
                                 <p className="text-lg text-gray-700 leading-relaxed font-sans">
-                                    At <strong className="text-[#0d3980]">Desi To Global Travel</strong>, we believe travel is more than an itinerary or stamps-in-a-passport exercise. Our mission is to bridge the gap between &quot;tourist&quot; and &quot;traveler&quot; by providing immersive, responsible, and soul-stirring journeys domestic & across the globe.
-                                </p>
-
-                                <p className="text-lg text-gray-700 leading-relaxed font-sans">
                                     When it comes to travel, come travel with Desi To Global Travel, we will make it memorable for you so that you can enjoy the tour and take the wonderful memories with you. We know what you want and need to know, it&apos;s not just all the cultural and historical places, but getting the insider knowledge on great Monuments and history of all over world.
                                 </p>
 
@@ -133,7 +129,11 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg max-w-none space-y-4 sm:space-y-6">
                                 <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
-                                    <strong className="text-[#0d3980]">Abhimanu Varma</strong> is a lifelong explorer who found their passion while backpacking through the Alps. We started with a simple goal: to make world-class travel accessible without losing the personal touch.
+                                    <strong className="text-[#0d3980]">Abhimanu Varma</strong> (Founder and Director of Desi to Global Travel)<br />
+                                    B.Tech | MBA | 6+ Years of experience in the Travel and Tourism Industry.
+                                </p>
+                                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
+                                    Driven by a passion for exploring through various destinations across India and the world.
                                 </p>
                                 <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
                                     Today, we are a team of expert local guides and travel designers dedicated to showing you the world through an insider&apos;s lens.

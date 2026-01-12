@@ -11,7 +11,7 @@ import { DestinationBookingDialog } from '@/components/booking/destination-booki
 export function DestinationDetailClient({ destination, packages }) {
     const [dialogOpen, setDialogOpen] = useState(false)
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919650509356'
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '971565635252'
     const whatsappMessage = encodeURIComponent(`Hi! I'm interested in ${destination.name}.`)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 

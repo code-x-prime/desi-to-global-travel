@@ -55,12 +55,18 @@ export default function ContactPage() {
                                             <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-[#f9c701]" />
                                         </div>
                                         <div className="min-w-0 flex-1">
-                                            <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">Phone</p>
+                                            <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">Phone / WhatsApp</p>
                                             <a
-                                                href="tel:+919650509356"
-                                                className="text-xs sm:text-sm text-gray-600 hover:text-[#0d3980] transition-colors font-sans"
+                                                href="tel:+971565635252"
+                                                className="text-xs sm:text-sm text-gray-600 hover:text-[#0d3980] transition-colors font-sans block"
                                             >
-                                                +91 9650509356
+                                                +971 56 563 5252
+                                            </a>
+                                            <a
+                                                href="tel:+919650435208"
+                                                className="text-xs sm:text-sm text-gray-600 hover:text-[#0d3980] transition-colors font-sans block"
+                                            >
+                                                +91 9650435208
                                             </a>
                                         </div>
                                     </div>

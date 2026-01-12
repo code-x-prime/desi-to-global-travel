@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa'
 
 export function Footer() {
-    const whatsappNumber = '919650509356'
+    const whatsappNumber = '971565635252'
+    const alternateNumber = '919650435208'
     const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
     return (
@@ -36,7 +37,7 @@ export function Footer() {
                                 <FaWhatsapp className="h-5 w-5" />
                             </a>
                             <a
-                                href="https://facebook.com/desitoglobaltravel"
+                                href="https://www.facebook.com/share/1YuZdPWGHi/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-[#1877F2] text-white rounded-full flex items-center justify-center hover:bg-[#166FE5] transition-colors duration-200"
@@ -45,7 +46,7 @@ export function Footer() {
                                 <FaFacebookF className="h-5 w-5" />
                             </a>
                             <a
-                                href="https://instagram.com/desitoglobaltravel"
+                                href="https://www.instagram.com/desitoglobaltravel/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity duration-200"
@@ -121,22 +122,20 @@ export function Footer() {
                         <ul className="space-y-4 sm:space-y-5">
                             <li>
                                 <a
-                                    href={whatsappUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#25D366] transition-colors duration-200 group"
+                                    href="tel:+971565635252"
+                                    className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200 group"
                                 >
-                                    <FaWhatsapp className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                                    <span className="break-all">+91 9650509356</span>
+                                    <FaPhone className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                                    <span className="break-all">+971 56 563 5252</span>
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="tel:+919650509356"
+                                    href={`tel:+${alternateNumber}`}
                                     className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200 group"
                                 >
                                     <FaPhone className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                                    <span className="break-all">+91 9650509356</span>
+                                    <span className="break-all">+91 9650435208</span>
                                 </a>
                             </li>
                             <li>
