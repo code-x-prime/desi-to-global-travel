@@ -96,7 +96,7 @@ export default function ContactPage() {
                                         <div className="min-w-0 flex-1">
                                             <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">GSTIN</p>
                                             <p className="text-xs sm:text-sm text-gray-600 font-sans">
-                                                09AUJPV4373N1ZN
+                                                <span className="font-bold text-[#0d3980]">09AUJPV4373N1ZN</span>
                                             </p>
                                         </div>
                                     </div>

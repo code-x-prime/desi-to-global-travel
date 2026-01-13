@@ -151,7 +151,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                                 <FaFileAlt className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                                <span>GSTIN: 09AUJPV4373N1ZN</span>
+                                <span>GSTIN: <span className="font-bold text-[#0d3980]">09AUJPV4373N1ZN</span></span>
                             </li>
                             <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                                 <FaMapMarkerAlt className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 flex-shrink-0" />

@@ -60,7 +60,7 @@ export default function AboutPage() {
 
                             <div className="prose prose-lg max-w-none space-y-6">
                                 <p className="text-lg text-gray-700 leading-relaxed font-sans">
-                                    When it comes to travel, come travel with Desi To Global Travel, we will make it memorable for you so that you can enjoy the tour and take the wonderful memories with you. We know what you want and need to know, it&apos;s not just all the cultural and historical places, but getting the insider knowledge on great Monuments and history of all over world.
+                                    When it comes to travel, come travel with <span className="font-bold text-[#0d3980]">Desi To Global Travel</span>, we will make it memorable for you so that you can enjoy the tour and take the wonderful memories with you. We know what you want and need to know, it&apos;s not just all the cultural and historical places, but getting the insider knowledge on great Monuments and history of all over world.
                                 </p>
 
                                 <p className="text-lg text-gray-700 leading-relaxed font-sans">
@@ -129,7 +129,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="prose prose-lg max-w-none space-y-4 sm:space-y-6">
                                 <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
-                                    <strong className="text-[#0d3980]">Abhimanu Varma</strong> (Founder and Director of Desi to Global Travel)<br />
+                                    <strong className="text-[#0d3980]">Abhimanu Varma</strong> (Founder and Director of <span className="font-bold text-[#0d3980]">Desi to Global Travel</span>)<br />
                                     B.Tech | MBA | 6+ Years of experience in the Travel and Tourism Industry.
                                 </p>
                                 <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
