@@ -7,7 +7,7 @@ import { BookingDialog } from '@/components/booking/booking-dialog'
 
 export function WhatsAppButton() {
     const [bookingOpen, setBookingOpen] = useState(false)
-    const whatsappNumber = '971565635252'
+    const whatsappNumber = '919650509356'
     const message = encodeURIComponent('Hello! I would like to know more about your travel packages.')
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa'
 
 export function Footer() {
-    const whatsappNumber = '971565635252'
+    const whatsappNumber = '919650509356'
     const alternateNumber = '919650435208'
     const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
@@ -122,11 +122,13 @@ export function Footer() {
                         <ul className="space-y-4 sm:space-y-5">
                             <li>
                                 <a
-                                    href="tel:+971565635252"
+                                    href={whatsappUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600 hover:text-[#0d3980] transition-colors duration-200 group"
                                 >
                                     <FaPhone className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                                    <span className="break-all">+971 56 563 5252</span>
+                                    <span className="break-all">+91 9650509356</span>
                                 </a>
                             </li>
                             <li>
