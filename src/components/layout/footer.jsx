@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa'
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaPhone, FaFileAlt } from 'react-icons/fa'
 
 export function Footer() {
     const whatsappNumber = '919650509356'
@@ -148,6 +148,10 @@ export function Footer() {
                                     <FaEnvelope className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
                                     <span className="break-all">contact@desitoglobaltravel.com</span>
                                 </a>
+                            </li>
+                            <li className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
+                                <FaFileAlt className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                                <span>GSTIN: 09AUJPV4373N1ZN</span>
                             </li>
                             <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-600">
                                 <FaMapMarkerAlt className="h-4 w-4 sm:h-5 sm:w-5 mt-0.5 flex-shrink-0" />

@@ -3,7 +3,7 @@
 import { ContactForm } from '@/components/contact/contact-form'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { PageBanner } from '@/components/layout/page-banner'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, FileText } from 'lucide-react'
 
 export default function ContactPage() {
 
@@ -85,6 +85,18 @@ export default function ContactPage() {
                                                 Sector-137, Noida, U.P.
                                                 <br />
                                                 Pin Code: 201305
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-3 sm:gap-4">
+                                        <div className="h-9 w-9 sm:h-10 sm:w-10 bg-[#f9c701]/10 flex items-center justify-center flex-shrink-0">
+                                            <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-[#f9c701]" />
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                            <p className="font-semibold text-sm sm:text-base text-gray-900 font-sans">GSTIN</p>
+                                            <p className="text-xs sm:text-sm text-gray-600 font-sans">
+                                                09AUJPV4373N1ZN
                                             </p>
                                         </div>
                                     </div>
