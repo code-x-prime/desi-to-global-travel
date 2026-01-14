@@ -20,6 +20,9 @@ const sourceSans3 = Source_Sans_3({
 export const metadata = {
   title: "Desi To Global Travel - Craft Your Next Great Story.",
   description: "Premium travel experiences across India and the world. We don't just book trips, we craft your next great story.",
+  verification: {
+    google: "AZBw0nndhyv3oDkI5epfYeg2QqV1etAM_gi6kVTQ8Ig",
+  },
 };
 
 export default function RootLayout({ children }) {

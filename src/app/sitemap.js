@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma'
 
 export default async function sitemap() {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://desitoglobaltravel.com'
 
     // Static pages
     const staticPages = [

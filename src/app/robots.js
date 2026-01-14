@@ -12,7 +12,7 @@ export default function robots() {
                 ],
             },
         ],
-        sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'}/sitemap.xml`,
+        sitemap: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://desitoglobaltravel.com'}/sitemap.xml`,
     }
 }
 
