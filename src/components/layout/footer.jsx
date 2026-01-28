@@ -161,7 +161,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-200 mt-10 sm:mt-12 lg:mt-16 pt-6 sm:pt-8 text-center">
+                <div className="border-t border-gray-200 mt-10 sm:mt-12 pt-6 sm:pt-8 text-center">
                     <p className="text-xs sm:text-sm text-gray-500">
                         &copy; {new Date().getFullYear()} Desi To Global Travel. All rights reserved.
                     </p>
