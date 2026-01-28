@@ -165,6 +165,18 @@ export function Footer() {
                     <p className="text-xs sm:text-sm text-gray-500">
                         &copy; {new Date().getFullYear()} Desi To Global Travel. All rights reserved.
                     </p>
+                    <p className="text-xs sm:text-sm text-gray-500 mt-3">
+                        Designed & Developed by{" "}
+                        <a
+                            href="http://groxmedia.in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Grox Media - Best Web Development Agency in India"
+                            className="text-[#0d3980] hover:text-[#0a2a5f] transition-colors duration-200 font-medium"
+                        >
+                            Grox Media
+                        </a>
+                    </p>
                 </div>
             </div>
         </footer>
